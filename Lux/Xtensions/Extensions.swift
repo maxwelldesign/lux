@@ -498,3 +498,26 @@ extension UnitPoint {
         }
     }
 }
+
+extension String {
+    func base64Encoded() -> String {
+        let plainData = data(using: .utf8)
+        let base64String = plainData?.base64EncodedString()
+        return base64String!
+    }
+
+    func base64Decoded() -> String {
+        guard
+            let data = Data(base64Encoded: self),
+            let decodedString = String(data: data, encoding: .utf8) else {
+            return ""
+        }
+        return decodedString
+    }
+}
+
+extension String {
+    var alphanumeric: String {
+        return components(separatedBy: CharacterSet.alphanumerics.inverted).joined()
+    }
+}

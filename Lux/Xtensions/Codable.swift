@@ -36,22 +36,22 @@ import UIKit
 typealias JSONString = String
 
 class Codec {
-    static func json<T: Codable>(from object: T) -> JSONString {
+    static func json<T: Codable>(from object: T) throws -> JSONString {
         let jsonEncoder = JSONEncoder()
-        let data = try! jsonEncoder.encode(object)
+        let data = try jsonEncoder.encode(object)
         return String(data: data, encoding: .utf8)!
     }
 
-    static func object<T: Codable>(fromJSON json: JSONString) -> T {
+    static func object<T: Codable>(fromJSON json: JSONString) throws -> T {
         let jsonDecoder = JSONDecoder()
         let data = json.data(using: .utf8)
-        let result = try! jsonDecoder.decode(T.self, from: data!)
+        let result = try jsonDecoder.decode(T.self, from: data!)
         return result
     }
 
-    static func dictionary<T: Codable>(from object: T) -> [String: Any?] {
-        let data = try! JSONEncoder().encode(object)
-        let dictionary = try! JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any]
+    static func dictionary<T: Codable>(from object: T) throws -> [String: Any?] {
+        let data = try JSONEncoder().encode(object)
+        let dictionary = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any]
 
         return dictionary!
     }

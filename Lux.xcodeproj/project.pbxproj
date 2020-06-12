@@ -46,6 +46,17 @@
 		263EB248247CFB0E00EE8342 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 263EB246247CFB0E00EE8342 /* LaunchScreen.storyboard */; };
 		263EB24E247CFB4200EE8342 /* Lux.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26DE1FF224770932003D5DF6 /* Lux.framework */; };
 		2665B8242478217700F30177 /* Lux+Current.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2665B8232478217700F30177 /* Lux+Current.swift */; };
+		26A3890E2491B68C0050BAB3 /* Look+Autoadjust.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A3890D2491B68C0050BAB3 /* Look+Autoadjust.swift */; };
+		26A389102491B6970050BAB3 /* Look+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A3890F2491B6970050BAB3 /* Look+Init.swift */; };
+		26CE0E792493134B00E62B8A /* Peer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CE0E782493134B00E62B8A /* Peer.swift */; };
+		26CE0E7B2493135600E62B8A /* MultiPeerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CE0E7A2493135600E62B8A /* MultiPeerDelegate.swift */; };
+		26CE0E7D2493136300E62B8A /* MultiPeer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CE0E7C2493136300E62B8A /* MultiPeer.swift */; };
+		26CE0E7F2493138600E62B8A /* MultipeerConnectivity.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26CE0E7E2493138600E62B8A /* MultipeerConnectivity.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		26CE0E82249313A800E62B8A /* LuxStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CE0E81249313A800E62B8A /* LuxStream.swift */; };
+		26CE0E84249313B000E62B8A /* StreamView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CE0E83249313B000E62B8A /* StreamView.swift */; };
+		26CE0E86249313B600E62B8A /* Stream+Photon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CE0E85249313B600E62B8A /* Stream+Photon.swift */; };
+		26CE0E882493239400E62B8A /* Look+LuxStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CE0E872493239400E62B8A /* Look+LuxStream.swift */; };
+		26CE0E8B2493404100E62B8A /* Look+Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CE0E8A2493404100E62B8A /* Look+Feed.swift */; };
 		26DE1FF724770932003D5DF6 /* Lux.h in Headers */ = {isa = PBXBuildFile; fileRef = 26DE1FF524770932003D5DF6 /* Lux.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		26E05A342486B8DB009BFB31 /* LookDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E05A332486B8DB009BFB31 /* LookDisplay.swift */; };
 		26E05A362486C20B009BFB31 /* SpecOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E05A352486C20B009BFB31 /* SpecOverview.swift */; };
@@ -92,6 +103,17 @@
 		263EB247247CFB0E00EE8342 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		263EB249247CFB0E00EE8342 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2665B8232478217700F30177 /* Lux+Current.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lux+Current.swift"; sourceTree = "<group>"; };
+		26A3890D2491B68C0050BAB3 /* Look+Autoadjust.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Look+Autoadjust.swift"; sourceTree = "<group>"; };
+		26A3890F2491B6970050BAB3 /* Look+Init.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Look+Init.swift"; sourceTree = "<group>"; };
+		26CE0E782493134B00E62B8A /* Peer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Peer.swift; sourceTree = "<group>"; };
+		26CE0E7A2493135600E62B8A /* MultiPeerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPeerDelegate.swift; sourceTree = "<group>"; };
+		26CE0E7C2493136300E62B8A /* MultiPeer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MultiPeer.swift; sourceTree = "<group>"; };
+		26CE0E7E2493138600E62B8A /* MultipeerConnectivity.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MultipeerConnectivity.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/MultipeerConnectivity.framework; sourceTree = DEVELOPER_DIR; };
+		26CE0E81249313A800E62B8A /* LuxStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LuxStream.swift; sourceTree = "<group>"; };
+		26CE0E83249313B000E62B8A /* StreamView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamView.swift; sourceTree = "<group>"; };
+		26CE0E85249313B600E62B8A /* Stream+Photon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stream+Photon.swift"; sourceTree = "<group>"; };
+		26CE0E872493239400E62B8A /* Look+LuxStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Look+LuxStream.swift"; sourceTree = "<group>"; };
+		26CE0E8A2493404100E62B8A /* Look+Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Look+Feed.swift"; sourceTree = "<group>"; };
 		26DE1FF224770932003D5DF6 /* Lux.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Lux.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		26DE1FF524770932003D5DF6 /* Lux.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Lux.h; sourceTree = "<group>"; };
 		26DE1FF624770932003D5DF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -112,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26CE0E7F2493138600E62B8A /* MultipeerConnectivity.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -121,6 +144,9 @@
 		2608DA262477098700A8AE39 /* Lux */ = {
 			isa = PBXGroup;
 			children = (
+				26CE0E892493403500E62B8A /* Feed */,
+				26CE0E802493139800E62B8A /* Stream */,
+				26CE0E772493132A00E62B8A /* MultiPeer */,
 				26DE1FF524770932003D5DF6 /* Lux.h */,
 				26DE1FF624770932003D5DF6 /* Info.plist */,
 				2608DA272477098700A8AE39 /* Core */,
@@ -206,6 +232,7 @@
 			isa = PBXGroup;
 			children = (
 				2608DA482477098700A8AE39 /* Look.swift */,
+				26A3890F2491B6970050BAB3 /* Look+Init.swift */,
 				2608DA452477098700A8AE39 /* Look+EffectValue.swift */,
 				2608DA462477098700A8AE39 /* Look+PaletteInfo.swift */,
 				2608DA472477098700A8AE39 /* Look+Palette.swift */,
@@ -213,6 +240,7 @@
 				2608DA4A2477098700A8AE39 /* Look+Effects.swift */,
 				2608DA4B2477098700A8AE39 /* Look+CodableHelpers.swift */,
 				2608DA4C2477098700A8AE39 /* Look+Fonts.swift */,
+				26A3890D2491B68C0050BAB3 /* Look+Autoadjust.swift */,
 			);
 			path = Look;
 			sourceTree = "<group>";
@@ -242,8 +270,38 @@
 		263EB24D247CFB4200EE8342 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				26CE0E7E2493138600E62B8A /* MultipeerConnectivity.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		26CE0E772493132A00E62B8A /* MultiPeer */ = {
+			isa = PBXGroup;
+			children = (
+				26CE0E782493134B00E62B8A /* Peer.swift */,
+				26CE0E7A2493135600E62B8A /* MultiPeerDelegate.swift */,
+				26CE0E7C2493136300E62B8A /* MultiPeer.swift */,
+			);
+			path = MultiPeer;
+			sourceTree = "<group>";
+		};
+		26CE0E802493139800E62B8A /* Stream */ = {
+			isa = PBXGroup;
+			children = (
+				26CE0E81249313A800E62B8A /* LuxStream.swift */,
+				26CE0E83249313B000E62B8A /* StreamView.swift */,
+				26CE0E85249313B600E62B8A /* Stream+Photon.swift */,
+				26CE0E872493239400E62B8A /* Look+LuxStream.swift */,
+			);
+			path = Stream;
+			sourceTree = "<group>";
+		};
+		26CE0E892493403500E62B8A /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				26CE0E8A2493404100E62B8A /* Look+Feed.swift */,
+			);
+			path = Feed;
 			sourceTree = "<group>";
 		};
 		26DE1FE824770931003D5DF6 = {
@@ -388,6 +446,7 @@
 			files = (
 				2665B8242478217700F30177 /* Lux+Current.swift in Sources */,
 				2608DA502477098800A8AE39 /* CoreTypes.swift in Sources */,
+				26CE0E8B2493404100E62B8A /* Look+Feed.swift in Sources */,
 				2608DA682477098800A8AE39 /* Look+Provider.swift in Sources */,
 				2608DA5E2477098800A8AE39 /* Extensions.swift in Sources */,
 				2608DA652477098800A8AE39 /* Look+PaletteInfo.swift in Sources */,
@@ -400,22 +459,31 @@
 				2608DA522477098800A8AE39 /* Lux+Mirror.swift in Sources */,
 				2608DA592477098800A8AE39 /* Trait+Constants.swift in Sources */,
 				2608DA5A2477098800A8AE39 /* Trait+Properties.swift in Sources */,
+				26A389102491B6970050BAB3 /* Look+Init.swift in Sources */,
 				2608DA532477098800A8AE39 /* Lux+Config.swift in Sources */,
 				2608DA4F2477098800A8AE39 /* Lux+Protocols.swift in Sources */,
 				2608DA562477098800A8AE39 /* Lux+Effect.swift in Sources */,
+				26CE0E7B2493135600E62B8A /* MultiPeerDelegate.swift in Sources */,
+				26CE0E82249313A800E62B8A /* LuxStream.swift in Sources */,
 				2608DA642477098800A8AE39 /* Look+EffectValue.swift in Sources */,
 				26E05A362486C20B009BFB31 /* SpecOverview.swift in Sources */,
 				2608DA612477098800A8AE39 /* View+SystemBlur.swift in Sources */,
+				26CE0E882493239400E62B8A /* Look+LuxStream.swift in Sources */,
 				2608DA5B2477098800A8AE39 /* View+API.swift in Sources */,
+				26CE0E7D2493136300E62B8A /* MultiPeer.swift in Sources */,
 				2608DA4E2477098800A8AE39 /* Lux+Render.swift in Sources */,
 				2608DA542477098800A8AE39 /* Lux+Tweaks.swift in Sources */,
 				2608DA5C2477098800A8AE39 /* View+UI.swift in Sources */,
+				26A3890E2491B68C0050BAB3 /* Look+Autoadjust.swift in Sources */,
+				26CE0E792493134B00E62B8A /* Peer.swift in Sources */,
 				2608DA662477098800A8AE39 /* Look+Palette.swift in Sources */,
 				2608DA622477098800A8AE39 /* UIBlurEffectStyle+AllCases.swift in Sources */,
 				2608DA572477098800A8AE39 /* Trait+Operators.swift in Sources */,
 				2608DA5F2477098800A8AE39 /* Codable.swift in Sources */,
 				2608DA602477098800A8AE39 /* BlurView.swift in Sources */,
 				2608DA6B2477098800A8AE39 /* Look+Fonts.swift in Sources */,
+				26CE0E84249313B000E62B8A /* StreamView.swift in Sources */,
+				26CE0E86249313B600E62B8A /* Stream+Photon.swift in Sources */,
 				2608DA582477098800A8AE39 /* Trait.swift in Sources */,
 				2608DA672477098800A8AE39 /* Look.swift in Sources */,
 				2608DA632477098800A8AE39 /* Color+HSL.swift in Sources */,

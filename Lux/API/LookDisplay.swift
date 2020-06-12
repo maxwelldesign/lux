@@ -21,8 +21,7 @@ public struct LookDisplay: View {
     var realtime = true
     var cornerRadius = true
     var animate = true
-    
-    
+
     public init(
         look: Look,
         active: Bool = false,
@@ -62,7 +61,7 @@ public struct LookDisplay: View {
                 .frame(maxWidth: self.maxWidth)
         }
     }
- 
+
     var content: some View {
         let specs = !flipped ?
 
@@ -123,7 +122,7 @@ public struct SpecificationDisplay: View {
     var flipped = false
     var realtime = true
     var animate = true
-    
+
     @State var _appeared = false
 
     public init(
@@ -178,16 +177,16 @@ public struct SpecificationDisplay: View {
         appeared ? 1 : 0.1
     }
 
-    var appeared:Bool{
+    var appeared: Bool {
         guard animate else {
             return true
         }
         return _appeared
     }
+
     func startShowing() {
         guard animate else { return }
-        
-        
+
         displayTimer?.invalidate()
         let timer = Timer(timeInterval: 0.369, repeats: false) { time in
             time.invalidate()

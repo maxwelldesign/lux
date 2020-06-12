@@ -7,7 +7,6 @@
 //
 
 import Combine
-// import SnapKit // TODO: remove dependency
 import SwiftUI
 import UIKit
 

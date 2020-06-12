@@ -180,5 +180,4 @@ extension LuxControlFlowAPI {
         return self as! LuxControlFlowAPIType
     }
 
-//    UIDevice.current.userInterfaceIdiom == .phone
 }
