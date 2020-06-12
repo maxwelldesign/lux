@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
 
   
   s.name         = "Lux"
-  s.version      = '1.0.33'
+  s.version      = '1.1.13'
   s.summary      = "DSL for UI Look Development + SwiftUI"
 
   
@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
    #s.watchos.deployment_target = '2.0'
 
 
-  s.source       =  { :git => 'https://github.com/maxwelldesign/lux.git', :tag => '1.0.33' }
+  s.source       =  { :git => 'https://github.com/maxwelldesign/lux.git', :tag => '1.1.13' }
   s.weak_frameworks = 'SwiftUI', 'Combine', 'UIKit'
 
   s.source_files = 'Lux/Lux.h', 'Lux/**/*.swift'

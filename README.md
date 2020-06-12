@@ -9,6 +9,8 @@ MAXWELL **L U X** makes app development faster (and magic)! Craft customized UI 
 - [Requirements](#requirements)
 - [Communication](#communication)
 - [Installation](#installation)
+- [SPM](#spm)
+- [Cocoapods](#cocoapods)
 - [Usage](#usage)
 - [LUX Specificaiton](#specification)
 - [LUX Stream](#stream)
@@ -31,7 +33,24 @@ MAXWELL **L U X** makes app development faster (and magic)! Craft customized UI 
 
 ## Installation
 
+<img src="https://user-images.githubusercontent.com/66370095/84549297-468adc00-accd-11ea-9e20-d0cf91016f9c.png" alt="" />
+
+### SPM
+[Swift Package Manager](https://github.com/apple/swift-package-manager) is a dependency manager for Cocoa projects. 
+
+You can install Lux by importing this repo's url into Xcode.
+
+```
+https://github.com/maxwelldesign/lux
+```
+
+----
+
+
+
 ### CocoaPods
+>  Notice: There are some known issues with CocoaPods and Xcode-Canvas. Whenever possible, please prefer the SPM install option. Experimental LUX import as SPM package inside a CocoaPods project has been successful.
+
 
 [CocoaPods](http://cocoapods.org) is a dependency manager for Cocoa projects. You can install it with the following command:
 
@@ -40,6 +59,7 @@ $ gem install cocoapods
 ```
 
 > CocoaPods 1.1.0+ is required to build Lux 1.0.0+.
+
 
 To integrate Lux into your Xcode project using CocoaPods, specify it in your `Podfile`:
 
@@ -57,11 +77,6 @@ Then, run the following command:
 
 ```bash
 $ pod install
-```
-
-### SPM
-
-Lux currently support SPM up to Xcode 11.3. SPM will fail in Xcode 11.4 and newer. We are working to resolve this issues.
 
 ---
 
@@ -94,6 +109,7 @@ struct ContentView: View {
 
 }
 ```
+---
 
 ### Specification
 
@@ -159,6 +175,8 @@ You can try Lux in Playground.
 **Note:**
 
 > To try Lux in playground, open `Lux.xcworkspace` and build Lux.framework for any simulator first.
+
+---
 
 ### Resources
 
