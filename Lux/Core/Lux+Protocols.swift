@@ -179,5 +179,4 @@ extension LuxControlFlowAPI {
         }
         return self as! LuxControlFlowAPIType
     }
-
 }

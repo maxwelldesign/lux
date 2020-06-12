@@ -10,9 +10,32 @@ import Lux
 import SwiftUI
 
 struct ContentView: View {
+    @State var showStream = false
+
+    func onSave(look _: Look) {}
+
     var body: some View {
-        ScrollView(.vertical) {
-            SpecificationOverview(spec: Look.current.spec)
+        ZStack {
+            ScrollView(.vertical) {
+                Spacer()
+                    .frame(height: 66)
+                SpecificationOverview(spec: Look.current.spec)
+            }.edgesIgnoringSafeArea(.all)
+
+            self.showStream ?
+                StreamsView(stream: Look.stream(), onSave: self.onSave)
+                : nil
+
+            Column {
+                Button(action: { self.showStream.toggle() }) {
+                    Text("Lux Stream")
+                        .lux
+                        .style(.button)
+                        .view
+                }
+
+                Spacer()
+            }
         }
     }
 }

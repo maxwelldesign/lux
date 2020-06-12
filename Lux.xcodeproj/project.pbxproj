@@ -37,13 +37,14 @@
 		2608DA692477098800A8AE39 /* Look+Effects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2608DA4A2477098700A8AE39 /* Look+Effects.swift */; };
 		2608DA6A2477098800A8AE39 /* Look+CodableHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2608DA4B2477098700A8AE39 /* Look+CodableHelpers.swift */; };
 		2608DA6B2477098800A8AE39 /* Look+Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2608DA4C2477098700A8AE39 /* Look+Fonts.swift */; };
+		262CAF652494032C0064B127 /* Lux.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26DE1FF224770932003D5DF6 /* Lux.framework */; };
+		262CAF662494032C0064B127 /* Lux.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 26DE1FF224770932003D5DF6 /* Lux.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		263EB23C247CFB0D00EE8342 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263EB23B247CFB0D00EE8342 /* AppDelegate.swift */; };
 		263EB23E247CFB0D00EE8342 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263EB23D247CFB0D00EE8342 /* SceneDelegate.swift */; };
 		263EB240247CFB0D00EE8342 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263EB23F247CFB0D00EE8342 /* ContentView.swift */; };
 		263EB242247CFB0E00EE8342 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 263EB241247CFB0E00EE8342 /* Assets.xcassets */; };
 		263EB245247CFB0E00EE8342 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 263EB244247CFB0E00EE8342 /* Preview Assets.xcassets */; };
 		263EB248247CFB0E00EE8342 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 263EB246247CFB0E00EE8342 /* LaunchScreen.storyboard */; };
-		263EB24E247CFB4200EE8342 /* Lux.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26DE1FF224770932003D5DF6 /* Lux.framework */; };
 		26A3890E2491B68C0050BAB3 /* Look+Autoadjust.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A3890D2491B68C0050BAB3 /* Look+Autoadjust.swift */; };
 		26A389102491B6970050BAB3 /* Look+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A3890F2491B6970050BAB3 /* Look+Init.swift */; };
 		26CE0E792493134B00E62B8A /* Peer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CE0E782493134B00E62B8A /* Peer.swift */; };
@@ -61,6 +62,20 @@
 		26E05A342486B8DB009BFB31 /* LookDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E05A332486B8DB009BFB31 /* LookDisplay.swift */; };
 		26E05A362486C20B009BFB31 /* SpecOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E05A352486C20B009BFB31 /* SpecOverview.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		262CAF672494032C0064B127 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				262CAF662494032C0064B127 /* Lux.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		2608DA282477098700A8AE39 /* Lux.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Lux.swift; sourceTree = "<group>"; };
@@ -127,7 +142,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				263EB24E247CFB4200EE8342 /* Lux.framework in Frameworks */,
+				262CAF652494032C0064B127 /* Lux.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,6 +361,7 @@
 				263EB235247CFB0D00EE8342 /* Sources */,
 				263EB236247CFB0D00EE8342 /* Frameworks */,
 				263EB237247CFB0D00EE8342 /* Resources */,
+				262CAF672494032C0064B127 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -516,6 +532,7 @@
 				DEVELOPMENT_TEAM = T2U36XTM2B;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -536,6 +553,7 @@
 				DEVELOPMENT_TEAM = T2U36XTM2B;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = Demo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -678,6 +696,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Lux/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -702,6 +721,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Lux/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

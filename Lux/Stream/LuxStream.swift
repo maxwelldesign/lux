@@ -55,14 +55,14 @@ public class LuxStream: ObservableObject {
     static let LuxStreamServiceTag = "01"
 
     public var status: Status = .disconnected {
-        //Note: Patch to prevent compilation error with @Publisher an enum
-        didSet{
+        // Note: Patch to prevent compilation error with @Publisher an enum
+        didSet {
             statusString = status.rawValue
         }
     }
-    
-    @Published public var statusString:String = ""
-    
+
+    @Published public var statusString: String = ""
+
     @Published public var preferredLook: Look?
     @Published public var tunedLook: Look?
     @Published public var streamNames: [String] = []
@@ -182,7 +182,7 @@ public extension LuxStream {
         }
 
         multiPeer
-            .send(object: photon.asJSONString(),
+            .send(object: photon,
                   type: Photon.DataType.string.rawValue)
     }
 
@@ -203,26 +203,28 @@ public extension LuxStream {
 }
 
 extension LuxStream: MultiPeerDelegate {
-    public func multiPeer(didReceiveData data: Data, ofType type: UInt32) {
+    public func multiPeer(didReceive packet: MultiPeer.Packet) {
         updateStatus()
 
-        switch type {
+        switch packet.type {
         case Photon.DataType.string.rawValue:
-            let stringData = data.convert() as! String
+
+            guard let stringData = String(data: packet.data, encoding: .utf8) else {
+                return
+            }
             if let photon: Photon = try? Codec.object(fromJSON: stringData) {
                 return tune(photon)
             }
-
+            assert(false, "unhandled data type")
+            return
         case Photon.DataType.image.rawValue:
             //          let image = UIImage(data: data)
             // do something with the received UIImage
             break
-
         default:
-            break
+            assert(false, "unhandled data type")
+            return
         }
-
-        assert(false, "unhandled data type")
     }
 
     public func multiPeer(connectedDevicesChanged names: [String]) {

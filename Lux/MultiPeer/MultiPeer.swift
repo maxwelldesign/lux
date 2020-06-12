@@ -2,11 +2,18 @@
 //  MultiPeer.swift
 //  MultiPeer
 //
-//  Created by Wilson Ding on 2/1/18.
+//  Created by Wilson Ding & Mark Maxwell on The New LUX
 //
 
 import Foundation
 import MultipeerConnectivity
+
+extension MultiPeer {
+    public struct Packet: Codable {
+        public var data: Data
+        public var type: UInt32
+    }
+}
 
 /// Main Class for MultiPeer
 public class MultiPeer: NSObject {
@@ -153,15 +160,15 @@ public class MultiPeer: NSObject {
     ///     - object: Object (Any) to send to all connected peers.
     ///     - type: Type of data (UInt32) sent
     /// After sending the object, you can use the extension for Data, `convertData()` to convert it back into an object.
-    public func send(object: Any, type: UInt32) {
-        if isConnected {
-//            let data = NSKeyedArchiver.archivedData(withRootObject: object)
-            guard let data = try? NSKeyedArchiver.archivedData(withRootObject: object,requiringSecureCoding:false) else{
-                assert(false)
-                return
-            }
-            send(data: data, type: type)
+    public func send(object: Codable, type: UInt32) {
+        guard isConnected else { return }
+        let json = object.asJSONString()
+        guard
+            let data = json.data(using: .utf8) else {
+            assert(false)
+            return
         }
+        send(data: data, type: type)
     }
 
     /// Sends Data (and type) to all connected peers.
@@ -172,8 +179,8 @@ public class MultiPeer: NSObject {
     public func send(data: Data, type: UInt32) {
         if isConnected {
             do {
-                let container: [Any] = [data, type]
-                guard let item = try? NSKeyedArchiver.archivedData(withRootObject: container,requiringSecureCoding:false) else{
+                let packet = Packet(data: data, type: type)
+                guard let item = packet.asJSONString().data(using: .utf8) else {
                     assert(false)
                     return
                 }
@@ -263,12 +270,14 @@ extension MultiPeer: MCSessionDelegate {
     public func session(_: MCSession, didReceive data: Data, fromPeer _: MCPeerID) {
         printDebug("Received data: \(data.count) bytes")
 
-        guard let container = data.convert() as? [Any] else { return }
-        guard let item = container[0] as? Data else { return }
-        guard let type = container[1] as? UInt32 else { return }
+        guard
+            let json = String(data: data, encoding: .utf8),
+            let packet: MultiPeer.Packet = try? Codec.object(fromJSON: json) else {
+            assert(false)
+        }
 
         OperationQueue.main.addOperation {
-            self.delegate?.multiPeer(didReceiveData: item, ofType: type)
+            self.delegate?.multiPeer(didReceive: packet)
         }
     }
 
@@ -285,19 +294,5 @@ extension MultiPeer: MCSessionDelegate {
     /// Finished receiving resource
     public func session(_: MCSession, didFinishReceivingResourceWithName resourceName: String, fromPeer _: MCPeerID, at _: URL?, withError _: Error?) {
         printDebug("Finished receiving resource with name: \(resourceName)")
-    }
-}
-
-// MARK: - Data extension for conversion
-
-extension Data {
-    /// Unarchive data into an object and return as type `Any`.
-    public func convert() -> Any {
-        return NSKeyedUnarchiver.unarchiveObject(with: self)!
-    }
-
-    /// Converts an object into Data using NSKeyedArchiver
-    public static func toData(object: Any) -> Data {
-        return NSKeyedArchiver.archivedData(withRootObject: object)
     }
 }
