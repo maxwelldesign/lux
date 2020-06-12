@@ -273,7 +273,8 @@ extension MultiPeer: MCSessionDelegate {
         guard
             let json = String(data: data, encoding: .utf8),
             let packet: MultiPeer.Packet = try? Codec.object(fromJSON: json) else {
-            assert(false)
+                assert(false)
+                return
         }
 
         OperationQueue.main.addOperation {
