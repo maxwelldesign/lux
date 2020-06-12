@@ -77,8 +77,9 @@ Then, run the following command:
 
 ```bash
 $ pod install
+```
 
----
+
 
 ## Usage
 
@@ -178,13 +179,32 @@ You can try Lux in Playground.
 
 ---
 
-### Resources
+## Resources
 
 - [Documentation (WIP)](https://luxyfy.me/lnk/docs)
 - [Website](https://maxwell.design)
 - [Press Release](https://luxyfy.me/lnk/PR)
 
-## Credits
+### Learning
+
+Install the Maxwell App and purchase a research license to its Full Source Code.  Some interesting features:
+
+- All screens based in LUX DSL
+- Firebase integration
+- iOS + macCatalyst
+- Sign in with Apple
+- Push Notifications
+- Local Storage
+- Realtime Databse 
+- Remote Configuration
+- In-App Purchases
+- Web Browsers
+- Advanced Combine + SwiftUI
+- way more!
+
+The entire Maxwell App is based on a (flavored) MVVC pattern over Combine + SwiftUI. Don't miss the chance to look into one of the first large scale apps built on the SwiftUI era!
+
+### Credits
 
 - Mark Maxwell ([@eonfluxor](https://twitter.com/robertjpayne))
 - Roots Rroy
@@ -195,7 +215,7 @@ You can try Lux in Playground.
 
 - [Multipeer Library by Wilson Ding](https://github.com/dingwilson/MultiPeer)
 
-## License
+### License
 
 LUX is released under the GNU GPL license. See LICENSE for details.
 
