@@ -169,7 +169,7 @@ You can try Lux in Playground.
 ## Credits
 
 - Mark Maxwell ([@eonfluxor](https://twitter.com/robertjpayne))
-- Ruths Rroy
+- Roots Rroy
 - Van Jhazz
 - Cosmos
 - Adrian Juarez
