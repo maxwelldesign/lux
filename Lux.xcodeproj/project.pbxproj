@@ -12,7 +12,6 @@
 		2608DA4F2477098800A8AE39 /* Lux+Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2608DA2A2477098700A8AE39 /* Lux+Protocols.swift */; };
 		2608DA502477098800A8AE39 /* CoreTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2608DA2B2477098700A8AE39 /* CoreTypes.swift */; };
 		2608DA512477098800A8AE39 /* Lux+Draw.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2608DA2C2477098700A8AE39 /* Lux+Draw.swift */; };
-		2608DA522477098800A8AE39 /* Lux+Mirror.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2608DA2D2477098700A8AE39 /* Lux+Mirror.swift */; };
 		2608DA532477098800A8AE39 /* Lux+Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2608DA2E2477098700A8AE39 /* Lux+Config.swift */; };
 		2608DA542477098800A8AE39 /* Lux+Tweaks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2608DA302477098700A8AE39 /* Lux+Tweaks.swift */; };
 		2608DA552477098800A8AE39 /* Lux+Features.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2608DA312477098700A8AE39 /* Lux+Features.swift */; };
@@ -45,7 +44,6 @@
 		263EB245247CFB0E00EE8342 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 263EB244247CFB0E00EE8342 /* Preview Assets.xcassets */; };
 		263EB248247CFB0E00EE8342 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 263EB246247CFB0E00EE8342 /* LaunchScreen.storyboard */; };
 		263EB24E247CFB4200EE8342 /* Lux.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26DE1FF224770932003D5DF6 /* Lux.framework */; };
-		2665B8242478217700F30177 /* Lux+Current.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2665B8232478217700F30177 /* Lux+Current.swift */; };
 		26A3890E2491B68C0050BAB3 /* Look+Autoadjust.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A3890D2491B68C0050BAB3 /* Look+Autoadjust.swift */; };
 		26A389102491B6970050BAB3 /* Look+Init.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26A3890F2491B6970050BAB3 /* Look+Init.swift */; };
 		26CE0E792493134B00E62B8A /* Peer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CE0E782493134B00E62B8A /* Peer.swift */; };
@@ -57,6 +55,8 @@
 		26CE0E86249313B600E62B8A /* Stream+Photon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CE0E85249313B600E62B8A /* Stream+Photon.swift */; };
 		26CE0E882493239400E62B8A /* Look+LuxStream.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CE0E872493239400E62B8A /* Look+LuxStream.swift */; };
 		26CE0E8B2493404100E62B8A /* Look+Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CE0E8A2493404100E62B8A /* Look+Feed.swift */; };
+		26D92EF22493E7CE0091D472 /* Lux+Mirroring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D92EF12493E7CE0091D472 /* Lux+Mirroring.swift */; };
+		26D92EF42493E7EB0091D472 /* Look+Current.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D92EF32493E7EB0091D472 /* Look+Current.swift */; };
 		26DE1FF724770932003D5DF6 /* Lux.h in Headers */ = {isa = PBXBuildFile; fileRef = 26DE1FF524770932003D5DF6 /* Lux.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		26E05A342486B8DB009BFB31 /* LookDisplay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E05A332486B8DB009BFB31 /* LookDisplay.swift */; };
 		26E05A362486C20B009BFB31 /* SpecOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E05A352486C20B009BFB31 /* SpecOverview.swift */; };
@@ -68,7 +68,6 @@
 		2608DA2A2477098700A8AE39 /* Lux+Protocols.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Lux+Protocols.swift"; sourceTree = "<group>"; };
 		2608DA2B2477098700A8AE39 /* CoreTypes.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreTypes.swift; sourceTree = "<group>"; };
 		2608DA2C2477098700A8AE39 /* Lux+Draw.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Lux+Draw.swift"; sourceTree = "<group>"; };
-		2608DA2D2477098700A8AE39 /* Lux+Mirror.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "\U001b\U001bLux+Mirror.swift"; sourceTree = "<group>"; };
 		2608DA2E2477098700A8AE39 /* Lux+Config.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Lux+Config.swift"; sourceTree = "<group>"; };
 		2608DA302477098700A8AE39 /* Lux+Tweaks.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Lux+Tweaks.swift"; sourceTree = "<group>"; };
 		2608DA312477098700A8AE39 /* Lux+Features.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Lux+Features.swift"; sourceTree = "<group>"; };
@@ -114,6 +113,8 @@
 		26CE0E85249313B600E62B8A /* Stream+Photon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Stream+Photon.swift"; sourceTree = "<group>"; };
 		26CE0E872493239400E62B8A /* Look+LuxStream.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Look+LuxStream.swift"; sourceTree = "<group>"; };
 		26CE0E8A2493404100E62B8A /* Look+Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Look+Feed.swift"; sourceTree = "<group>"; };
+		26D92EF12493E7CE0091D472 /* Lux+Mirroring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Lux+Mirroring.swift"; sourceTree = "<group>"; };
+		26D92EF32493E7EB0091D472 /* Look+Current.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Look+Current.swift"; sourceTree = "<group>"; };
 		26DE1FF224770932003D5DF6 /* Lux.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Lux.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		26DE1FF524770932003D5DF6 /* Lux.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Lux.h; sourceTree = "<group>"; };
 		26DE1FF624770932003D5DF6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -168,8 +169,8 @@
 				2608DA2A2477098700A8AE39 /* Lux+Protocols.swift */,
 				2608DA2B2477098700A8AE39 /* CoreTypes.swift */,
 				2608DA2C2477098700A8AE39 /* Lux+Draw.swift */,
-				2608DA2D2477098700A8AE39 /* Lux+Mirror.swift */,
 				2608DA2E2477098700A8AE39 /* Lux+Config.swift */,
+				26D92EF12493E7CE0091D472 /* Lux+Mirroring.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -232,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				2608DA482477098700A8AE39 /* Look.swift */,
+				26D92EF32493E7EB0091D472 /* Look+Current.swift */,
 				26A3890F2491B6970050BAB3 /* Look+Init.swift */,
 				2608DA452477098700A8AE39 /* Look+EffectValue.swift */,
 				2608DA462477098700A8AE39 /* Look+PaletteInfo.swift */,
@@ -444,7 +446,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2665B8242478217700F30177 /* Lux+Current.swift in Sources */,
 				2608DA502477098800A8AE39 /* CoreTypes.swift in Sources */,
 				26CE0E8B2493404100E62B8A /* Look+Feed.swift in Sources */,
 				2608DA682477098800A8AE39 /* Look+Provider.swift in Sources */,
@@ -456,7 +457,6 @@
 				26E05A342486B8DB009BFB31 /* LookDisplay.swift in Sources */,
 				2608DA552477098800A8AE39 /* Lux+Features.swift in Sources */,
 				2608DA4D2477098800A8AE39 /* Lux.swift in Sources */,
-				2608DA522477098800A8AE39 /* Lux+Mirror.swift in Sources */,
 				2608DA592477098800A8AE39 /* Trait+Constants.swift in Sources */,
 				2608DA5A2477098800A8AE39 /* Trait+Properties.swift in Sources */,
 				26A389102491B6970050BAB3 /* Look+Init.swift in Sources */,
@@ -468,12 +468,14 @@
 				2608DA642477098800A8AE39 /* Look+EffectValue.swift in Sources */,
 				26E05A362486C20B009BFB31 /* SpecOverview.swift in Sources */,
 				2608DA612477098800A8AE39 /* View+SystemBlur.swift in Sources */,
+				26D92EF22493E7CE0091D472 /* Lux+Mirroring.swift in Sources */,
 				26CE0E882493239400E62B8A /* Look+LuxStream.swift in Sources */,
 				2608DA5B2477098800A8AE39 /* View+API.swift in Sources */,
 				26CE0E7D2493136300E62B8A /* MultiPeer.swift in Sources */,
 				2608DA4E2477098800A8AE39 /* Lux+Render.swift in Sources */,
 				2608DA542477098800A8AE39 /* Lux+Tweaks.swift in Sources */,
 				2608DA5C2477098800A8AE39 /* View+UI.swift in Sources */,
+				26D92EF42493E7EB0091D472 /* Look+Current.swift in Sources */,
 				26A3890E2491B68C0050BAB3 /* Look+Autoadjust.swift in Sources */,
 				26CE0E792493134B00E62B8A /* Peer.swift in Sources */,
 				2608DA662477098800A8AE39 /* Look+Palette.swift in Sources */,

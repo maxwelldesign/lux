@@ -155,8 +155,11 @@ public class MultiPeer: NSObject {
     /// After sending the object, you can use the extension for Data, `convertData()` to convert it back into an object.
     public func send(object: Any, type: UInt32) {
         if isConnected {
-            let data = NSKeyedArchiver.archivedData(withRootObject: object)
-
+//            let data = NSKeyedArchiver.archivedData(withRootObject: object)
+            guard let data = try? NSKeyedArchiver.archivedData(withRootObject: object,requiringSecureCoding:false) else{
+                assert(false)
+                return
+            }
             send(data: data, type: type)
         }
     }
@@ -170,7 +173,10 @@ public class MultiPeer: NSObject {
         if isConnected {
             do {
                 let container: [Any] = [data, type]
-                let item = NSKeyedArchiver.archivedData(withRootObject: container)
+                guard let item = try? NSKeyedArchiver.archivedData(withRootObject: container,requiringSecureCoding:false) else{
+                    assert(false)
+                    return
+                }
                 try session.send(item, toPeers: session.connectedPeers, with: MCSessionSendDataMode.reliable)
             } catch {
                 printDebug(error.localizedDescription)

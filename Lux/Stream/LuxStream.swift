@@ -54,7 +54,15 @@ public class LuxStream: ObservableObject {
     static let refreshDelay = 0.750
     static let LuxStreamServiceTag = "01"
 
-    @Published public var status: Status = .disconnected
+    public var status: Status = .disconnected {
+        //Note: Patch to prevent compilation error with @Publisher an enum
+        didSet{
+            statusString = status.rawValue
+        }
+    }
+    
+    @Published public var statusString:String = ""
+    
     @Published public var preferredLook: Look?
     @Published public var tunedLook: Look?
     @Published public var streamNames: [String] = []
@@ -87,7 +95,7 @@ public extension LuxStream {
 
         config.shouldConnect ?
             connectIntent()
-            : disconnect()
+            : disconnectNow()
     }
 
     func connectIntent() {
@@ -113,7 +121,7 @@ public extension LuxStream {
     }
 
     func connect() {
-        disconnect()
+        disconnectNow()
 
         multiPeer = MultiPeer()
         multiPeer?.delegate = self
@@ -122,7 +130,7 @@ public extension LuxStream {
         multiPeer?.autoConnect()
     }
 
-    func disconnect() {
+    func disconnectNow() {
         multiPeer?.disconnect()
         multiPeer = nil
         connectedConfig = nil

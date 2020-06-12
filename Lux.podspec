@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
 
   
   s.name         = "Lux"
-  s.version      = '0.17.1'
+  s.version      = '1.0.3'
   s.summary      = "DSL for UI Look Development + SwiftUI"
 
   
@@ -20,11 +20,11 @@ Pod::Spec.new do |s|
   DESC
 
   s.homepage     = "https://maxwell.design"
-  # s.screenshots  = "www.example.com/screenshots_1.gif", "www.example.com/screenshots_2.gif"
+  s.screenshots  = "https://res.cloudinary.com/maxwelldesign/image/upload/v1591974050/static/maxwelldesign5_caeiey.jpg", "https://res.cloudinary.com/maxwelldesign/image/upload/v1591974050/static/maxwelldesign_qhplxk.jpg", "https://res.cloudinary.com/maxwelldesign/image/upload/v1591974050/static/maxwelldesign3_zpa2bd.jpg", "https://res.cloudinary.com/maxwelldesign/image/upload/v1591974047/static/maxwelldesign2_t4jtwl.jpg"
 
   s.license      = { :type => "GNU GPLv3", :file => "LICENSE" }
 
-  s.authors            = { "eonflux" => "eonfluxor@gmail.com" }
+  s.authors            = { "Mark Maxwell" => "lux@maxwell.design" }
 
 
    s.ios.deployment_target = '13.1'
@@ -33,7 +33,7 @@ Pod::Spec.new do |s|
    #s.watchos.deployment_target = '2.0'
 
 
-  s.source       = { :git => "git@github.com:maxwelldesign/lux.git", :tag => "v#{s.version}" }
+  s.source       =  { :git => 'https://github.com/maxwelldesign/lux.git', :tag=> '1.0.3' }
   s.weak_frameworks = 'SwiftUI', 'Combine', 'UIKit'
 
   s.source_files = 'Lux/**/*.swift'

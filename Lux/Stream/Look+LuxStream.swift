@@ -21,7 +21,7 @@ public extension Look {
         _streamObservable?.cancel()
         _streamObservable = nil
 
-        _stream?.disconnect()
+        _stream?.disconnectNow()
         _stream = nil
     }
 }
