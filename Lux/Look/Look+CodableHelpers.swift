@@ -27,7 +27,8 @@ struct CodableFont: Codable {
         do {
             if
                 let descriptorData = descriptorData,
-                let fontDescriptor = try NSKeyedUnarchiver.unarchivedObject(ofClass: UIFontDescriptor.self, from: descriptorData) {
+                let fontDescriptor = try NSKeyedUnarchiver.unarchivedObject(ofClass: UIFontDescriptor.self, from: descriptorData)
+            {
                 return UIFont(descriptor: fontDescriptor, size: size)
             }
         } catch {

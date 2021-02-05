@@ -10,7 +10,7 @@ import SwiftUI
 import UIKit
 
 public extension UIFont {
-    private struct CustomFont {
+    private enum CustomFont {
         static var fontFamily = "Avenir"
     }
 
@@ -64,8 +64,8 @@ extension EdgeInsets {
     static let zero = EdgeInsets(top: 0, leading: 0, bottom: 0, trailing: 0)
 }
 
-extension UIColor {
-    public var uiColor: Color {
+public extension UIColor {
+    var paint: Color {
         var r: CGFloat = 0
         var g: CGFloat = 0
         var b: CGFloat = 0
@@ -76,6 +76,34 @@ extension UIColor {
     }
 }
 
+public extension UIColor {
+    convenience init?(hex: String) {
+        let r, g, b, a: CGFloat
+
+        if hex.hasPrefix("#") {
+            let start = hex.index(hex.startIndex, offsetBy: 1)
+            let hexColor = String(hex[start...])
+
+            if hexColor.count == 8 {
+                let scanner = Scanner(string: hexColor)
+                var hexNumber: UInt64 = 0
+
+                if scanner.scanHexInt64(&hexNumber) {
+                    r = CGFloat((hexNumber & 0xFF00_0000) >> 24) / 255
+                    g = CGFloat((hexNumber & 0x00FF_0000) >> 16) / 255
+                    b = CGFloat((hexNumber & 0x0000_FF00) >> 8) / 255
+                    a = CGFloat(hexNumber & 0x0000_00FF) / 255
+
+                    self.init(red: r, green: g, blue: b, alpha: a)
+                    return
+                }
+            }
+        }
+
+        return nil
+    }
+}
+
 extension Color {
     public func uiColor() -> UIColor {
         let components = self.components()
@@ -83,31 +111,37 @@ extension Color {
     }
 
     private func components() -> (r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) {
-        let scanner = Scanner(string: description.trimmingCharacters(in: CharacterSet.alphanumerics.inverted))
-        var hexNumber: UInt64 = 0
         var r: CGFloat = 0.0, g: CGFloat = 0.0, b: CGFloat = 0.0, a: CGFloat = 0.0
 
-        let result = scanner.scanHexInt64(&hexNumber)
-        if result {
-            r = CGFloat((hexNumber & 0xFF00_0000) >> 24) / 255
-            g = CGFloat((hexNumber & 0x00FF_0000) >> 16) / 255
-            b = CGFloat((hexNumber & 0x0000_FF00) >> 8) / 255
-            a = CGFloat(hexNumber & 0x0000_00FF) / 255
+        if #available(iOS 14.0, *) {
+            UIColor(self).getRed(&r, green: &g, blue: &b, alpha: &a)
+        } else {
+            // Fallback on earlier versions
+            let scanner = Scanner(string: description.trimmingCharacters(in: CharacterSet.alphanumerics.inverted))
+            var hexNumber: UInt64 = 0
+            let result = scanner.scanHexInt64(&hexNumber)
+            if result {
+                r = CGFloat((hexNumber & 0xFF00_0000) >> 24) / 255
+                g = CGFloat((hexNumber & 0x00FF_0000) >> 16) / 255
+                b = CGFloat((hexNumber & 0x0000_FF00) >> 8) / 255
+                a = CGFloat(hexNumber & 0x0000_00FF) / 255
+            }
         }
+
         return (r, g, b, a)
     }
 }
 
-extension Font {
-    public static func textSize(_ textStyle: UIFont.TextStyle) -> CGFloat {
+public extension Font {
+    static func textSize(_ textStyle: UIFont.TextStyle) -> CGFloat {
         UIFont.preferredFont(forTextStyle: textStyle).pointSize
     }
 }
 
-extension UIFont.TextStyle {
-    public static let title = UIFont.TextStyle.title1
-    public static let caption = UIFont.TextStyle.caption1
-    public var displayName: String {
+public extension UIFont.TextStyle {
+    static let title = UIFont.TextStyle.title1
+    static let caption = UIFont.TextStyle.caption1
+    var displayName: String {
         switch self {
         case .largeTitle:
             return "Large Title"
@@ -131,10 +165,10 @@ extension UIFont.TextStyle {
     }
 }
 
-extension UIColor {
+public extension UIColor {
     // get a complementary color to this color
     // https://gist.github.com/klein-artur/025a0fa4f167a648d9ea
-    public var complementary: UIColor {
+    var complementary: UIColor {
         let ciColor = CIColor(color: self)
 
         // get the current values and make the difference from white:
@@ -147,7 +181,7 @@ extension UIColor {
 
     // perceptive luminance
     // https://stackoverflow.com/questions/1855884/determine-font-color-based-on-background-color
-    public var contrast: UIColor {
+    var contrast: UIColor {
         let ciColor = CIColor(color: self)
 
         let compRed: CGFloat = ciColor.red * 0.299
@@ -164,7 +198,7 @@ extension UIColor {
         return color.withAlphaComponent(ciColor.alpha)
     }
 
-    public func contrast(threshold: CGFloat = 0.65, bright: UIColor = Look.current.surface.foregroundLight.uiColor(), dark: UIColor = Look.current.surface.foregroundDark.uiColor()) -> UIColor {
+    func contrast(threshold: CGFloat = 0.65, bright: UIColor = Look.current.surface.foregroundLight.uiColor(), dark: UIColor = Look.current.surface.foregroundDark.uiColor()) -> UIColor {
         let ciColor = CIColor(color: self)
 
         let compRed = 0.299 * ciColor.red
@@ -236,9 +270,9 @@ extension UIColor {
     }
 }
 
-extension Color {
-    public var contrast: Color {
-        uiColor().contrast.uiColor
+public extension Color {
+    var contrast: Color {
+        uiColor().contrast.paint
     }
 }
 
@@ -286,30 +320,30 @@ public extension Double {
     }
 }
 
-extension CGFloat {
-    public static var eighth: CGFloat {
+public extension CGFloat {
+    static var eighth: CGFloat {
         0.125
     }
 
-    public static var quarter: CGFloat {
+    static var quarter: CGFloat {
         0.25
     }
 
-    public static var half: CGFloat {
+    static var half: CGFloat {
         0.5
     }
 
-    public static var base: CGFloat {
+    static var base: CGFloat {
         1.0
     }
 }
 
-extension CGFloat {
-    public static var screenWidth: CGFloat {
+public extension CGFloat {
+    static var screenWidth: CGFloat {
         UIScreen.main.bounds.size.width
     }
 
-    public static var screenHeight: CGFloat {
+    static var screenHeight: CGFloat {
         UIScreen.main.bounds.size.height
     }
 }
@@ -463,8 +497,8 @@ extension HueColor: Hashable {
     }
 }
 
-extension CGFloat {
-    public var doubleValue: Double {
+public extension CGFloat {
+    var doubleValue: Double {
         Double(self)
     }
 }
@@ -509,7 +543,8 @@ extension String {
     func base64Decoded() -> String {
         guard
             let data = Data(base64Encoded: self),
-            let decodedString = String(data: data, encoding: .utf8) else {
+            let decodedString = String(data: data, encoding: .utf8)
+        else {
             return ""
         }
         return decodedString

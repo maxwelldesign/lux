@@ -35,7 +35,7 @@ import UIKit
 
 typealias JSONString = String
 
-class Codec {
+enum Codec {
     static func json<T: Codable>(from object: T) throws -> JSONString {
         let jsonEncoder = JSONEncoder()
         let data = try jsonEncoder.encode(object)

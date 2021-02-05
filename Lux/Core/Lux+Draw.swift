@@ -68,8 +68,8 @@ public extension Lux.Drawing {
         let maxOpacity = 0.5
         let opacity = trait.spec.tint.full.doubleValue * trait.spec.tint.mixNormal.doubleValue * maxOpacity
 
-        let colorA = trait.spec.color.tint.opacity(opacity)
-        let colorB = trait.spec.color.tint2.opacity(opacity)
+        let colorA = trait.spec.color.tint.paint.opacity(opacity)
+        let colorB = trait.spec.color.tint2.paint.opacity(opacity)
         let grad = Gradient(colors: [colorA, colorB])
 
         switch trait.spec.texture.style {
@@ -98,7 +98,7 @@ public extension Lux.Drawing {
         let stroke = max(1.0, 44 * trait.spec.fill.full * scale)
 
         return baseShape
-            .stroke(trait.spec.color.fill, lineWidth: stroke)
+            .stroke(trait.spec.color.fill.paint, lineWidth: stroke)
             .scaleEffect(scale)
             .clipped()
             .blur(radius: blur)

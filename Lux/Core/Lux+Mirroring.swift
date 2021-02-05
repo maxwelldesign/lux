@@ -83,13 +83,14 @@ class UIMirroringCoordinator: UIHostingController<AnyView> {
         }
     }
 
+    @available(*, unavailable)
     @objc dynamic required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }
 
 extension UIMirroringCoordinator {
-    struct Manager {
+    enum Manager {
         static var mirrorTag: Int {
             3 * 6 * 9 * 13
         }

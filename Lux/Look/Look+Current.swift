@@ -8,21 +8,21 @@
 
 import Foundation
 
-extension Look {
-    public class CurrentState: ObservableObject {
+public extension Look {
+    class CurrentState: ObservableObject {
         @Published var base = Look()
         @Published var active: Look?
     }
 }
 
-extension Look {
-    public static let state = CurrentState()
+public extension Look {
+    static let state = CurrentState()
 
-    public static func set(active: Look) {
+    static func set(active: Look) {
         state.active = active
     }
 
-    public static var current: Look {
+    static var current: Look {
         state.active ?? state.base
     }
 }

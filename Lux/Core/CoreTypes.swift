@@ -13,10 +13,10 @@ extension UIFont.TextStyle: Codable {}
 extension Edge.Set: Codable {}
 extension Look.Layout: Hashable {}
 
-extension Look {
-    public typealias Layout = UIFont.TextStyle
+public extension Look {
+    typealias Layout = UIFont.TextStyle
 
-    public enum Surface: String, Codable, Hashable {
+    enum Surface: String, Codable, Hashable {
         case canvas
         case normal
         case accent
@@ -27,7 +27,7 @@ extension Look {
         }
     }
 
-    public enum Priority: String, Codable {
+    enum Priority: String, Codable {
         case primary
         case secondary
         case tertiary
@@ -44,12 +44,12 @@ extension Look {
         }
     }
 
-    public enum FontMix: String, Codable, Equatable {
+    enum FontMix: String, Codable, Equatable {
         case byPriority
         case mixed
     }
 
-    public enum Elevation: String, Codable, Equatable {
+    enum Elevation: String, Codable, Equatable {
         case shadow
         case below3x
         case below2x

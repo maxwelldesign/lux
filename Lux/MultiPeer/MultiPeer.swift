@@ -8,8 +8,8 @@
 import Foundation
 import MultipeerConnectivity
 
-extension MultiPeer {
-    public struct Packet: Codable {
+public extension MultiPeer {
+    struct Packet: Codable {
         public var data: Data
         public var type: UInt32
     }
@@ -164,7 +164,8 @@ public class MultiPeer: NSObject {
         guard isConnected else { return }
         let json = object.asJSONString()
         guard
-            let data = json.data(using: .utf8) else {
+            let data = json.data(using: .utf8)
+        else {
             assert(false)
             return
         }
@@ -272,9 +273,10 @@ extension MultiPeer: MCSessionDelegate {
 
         guard
             let json = String(data: data, encoding: .utf8),
-            let packet: MultiPeer.Packet = try? Codec.object(fromJSON: json) else {
-                assert(false)
-                return
+            let packet: MultiPeer.Packet = try? Codec.object(fromJSON: json)
+        else {
+            assert(false)
+            return
         }
 
         OperationQueue.main.addOperation {

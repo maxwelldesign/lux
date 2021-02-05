@@ -236,9 +236,9 @@ public struct SpecificationDisplay: View {
                                 Spacer()
                             }.lux.view
                     }
-                    .foregroundColor(self.spec.color.shadow.contrast)
+                    .foregroundColor(self.spec.color.shadow.contrast.paint)
                     .font(Font(self.spec.font.primary.withSize(self.look.specDark.font.titleSize)))
-                    .shadow(color: self.spec.color.shadow, radius: self.spec.shadow.currentNormal)
+                    .shadow(color: self.spec.color.shadow.paint, radius: self.spec.shadow.currentNormal)
                     .lux
                     .feature(.flexibleWidth)
                     .view
@@ -266,9 +266,9 @@ public struct SpecificationDisplay: View {
             trait.tweak(.normalSurface, .elevationAbove).surfaceElevationColor,
             trait.tweak(.normalSurface, .elevationBelow).surfaceElevationColor,
             trait.tweak(.accentSurface, .elevationNormal).surfaceElevationColor,
-            spec.color.tertiary,
-            spec.color.secondary,
-            spec.color.primary,
+            spec.color.tertiary.paint,
+            spec.color.secondary.paint,
+            spec.color.primary.paint,
             trait.tweak(.activeSurface, .elevationBelow).surfaceElevationColor,
             trait.tweak(.activeSurface, .elevationAbove).surfaceElevationColor,
         ]
