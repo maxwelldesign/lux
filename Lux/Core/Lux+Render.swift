@@ -19,21 +19,21 @@ extension Lux.Render: LuxControlFlowAPI {
     public typealias LuxControlFlowAPIType = Lux.Render
 }
 
-extension Lux.Render {
+public extension Lux.Render {
     @discardableResult
-    public func mirrorBlock(_ block: @escaping Lux.LuxRenderBlock) -> Lux.Render {
+    func mirrorBlock(_ block: @escaping Lux.LuxRenderBlock) -> Lux.Render {
         backgroundBlock(block)
     }
 
     @discardableResult
-    public func backgroundBlock(_ block: @escaping Lux.LuxRenderBlock) -> Lux.Render {
+    func backgroundBlock(_ block: @escaping Lux.LuxRenderBlock) -> Lux.Render {
         viewMutation {
             $0.background(block(self)).anyView()
         }
     }
 
     @discardableResult
-    public func overlayBlock(_: Trait = Trait(), block: @escaping Lux.LuxRenderBlock) -> Lux.Render {
+    func overlayBlock(_: Trait = Trait(), block: @escaping Lux.LuxRenderBlock) -> Lux.Render {
         viewMutation {
             $0.overlay(block(self)).anyView()
         }

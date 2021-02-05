@@ -48,24 +48,24 @@ public extension SpecificationProtocol {
     }
 }
 
-extension EffectValueProtocol {
-    public var range: ClosedRange<CGFloat> {
+public extension EffectValueProtocol {
+    var range: ClosedRange<CGFloat> {
         min ... max
     }
 
-    public var rangeValue: CGFloat {
+    var rangeValue: CGFloat {
         max - min
     }
 
-    public var currentRangeValue: CGFloat {
+    var currentRangeValue: CGFloat {
         current - min
     }
 
-    public var currentRangeScale: CGFloat {
+    var currentRangeScale: CGFloat {
         currentRangeValue / rangeValue
     }
 
-    public var intensity: CGFloat {
+    var intensity: CGFloat {
         Swift.max(0.0, Swift.min(1.0, currentRangeScale * mix))
     }
 }
@@ -82,7 +82,7 @@ public struct EffectValue: EffectValueProtocol, EffectFraction, EffectSize, Coda
     public var mixFull: CGFloat = 1.0
     public var min: CGFloat = 0.0
     public var max: CGFloat = 1.0
-    public var step: CGFloat.Stride = CGFloat.Stride(StylingPhi * 0.1)
+    public var step = CGFloat.Stride(StylingPhi * 0.1)
 
     public var base: CGFloat {
         get {
@@ -171,14 +171,14 @@ public protocol EffectFraction: EffectValueProtocol {
     var hairline: CGFloat { get }
 }
 
-extension EffectFraction {
-    public var quarter3x: CGFloat { base * 0.75 }
-    public var full: CGFloat { base * 1.0 }
-    public var half: CGFloat { base * 0.5 }
-    public var quarter: CGFloat { base * 0.25 }
-    public var eighth: CGFloat { base / 8.0 }
-    public var hairline2x: CGFloat { 2.0 }
-    public var hairline: CGFloat { 1.0 }
+public extension EffectFraction {
+    var quarter3x: CGFloat { base * 0.75 }
+    var full: CGFloat { base * 1.0 }
+    var half: CGFloat { base * 0.5 }
+    var quarter: CGFloat { base * 0.25 }
+    var eighth: CGFloat { base / 8.0 }
+    var hairline2x: CGFloat { 2.0 }
+    var hairline: CGFloat { 1.0 }
 }
 
 // MARK: LEVEL
@@ -190,8 +190,8 @@ public protocol EffectSize: EffectValueProtocol {
     var hairline: CGFloat { get }
 }
 
-extension EffectSize {
-    public var large: CGFloat { base * 0.75 }
-    public var medium: CGFloat { base * 0.5 }
-    public var small: CGFloat { base * 0.25 }
+public extension EffectSize {
+    var large: CGFloat { base * 0.75 }
+    var medium: CGFloat { base * 0.5 }
+    var small: CGFloat { base * 0.25 }
 }

@@ -9,8 +9,8 @@ import Combine
 import SwiftUI
 import UIKit
 
-extension Look {
-    public struct Meta: Codable, Hashable {
+public extension Look {
+    struct Meta: Codable, Hashable {
         public var creationId = UUID().uuidString
         public var publishedVersion = 0
         public var createdAt: Date? = Date()
@@ -30,8 +30,8 @@ extension Look {
     }
 }
 
-extension Look {
-    public struct Data {
+public extension Look {
+    struct Data {
         public var name: String = "Maxwell"
         public var meta = Meta()
         public var preferredScheme: Look.Scheme?
@@ -292,8 +292,8 @@ public extension Look {
     }
 }
 
-extension Look {
-    public var spec: Specification {
+public extension Look {
+    var spec: Specification {
         get {
             queue.sync { scheme == .light ? specLight : specDark }
         }
@@ -309,7 +309,7 @@ extension Look {
         }
     }
 
-    public var preferredScheme: Look.Scheme? {
+    var preferredScheme: Look.Scheme? {
         get {
             data.preferredScheme
         }
@@ -318,7 +318,7 @@ extension Look {
         }
     }
 
-    public var defaultLayout: Look.Layout {
+    var defaultLayout: Look.Layout {
         get {
             data.defaultLayout
         }
@@ -327,7 +327,7 @@ extension Look {
         }
     }
 
-    public var defaultSurface: Look.Surface {
+    var defaultSurface: Look.Surface {
         get {
             data.defaultSurface
         }
@@ -336,7 +336,7 @@ extension Look {
         }
     }
 
-    public var defaultFontMix: Look.FontMix {
+    var defaultFontMix: Look.FontMix {
         get {
             data.defaultFontMix
         }
@@ -345,7 +345,7 @@ extension Look {
         }
     }
 
-    public var defaultElevation: Look.Elevation {
+    var defaultElevation: Look.Elevation {
         get {
             data.defaultElevation
         }
@@ -354,7 +354,7 @@ extension Look {
         }
     }
 
-    public var specLight: Specification {
+    var specLight: Specification {
         get {
             data.specLight
         }
@@ -363,7 +363,7 @@ extension Look {
         }
     }
 
-    public var specDark: Specification {
+    var specDark: Specification {
         get {
             data.specDark
         }
@@ -372,7 +372,7 @@ extension Look {
         }
     }
 
-    public var name: String {
+    var name: String {
         get {
             data.name
         }
@@ -381,7 +381,7 @@ extension Look {
         }
     }
 
-    public var meta: Meta {
+    var meta: Meta {
         get {
             data.meta
         }

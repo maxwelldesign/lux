@@ -7,8 +7,8 @@
 
 import Foundation
 
-extension Lux {
-    public struct Style: Codable, Hashable {
+public extension Lux {
+    struct Style: Codable, Hashable {
         public var tweaks: [Tweak]
         public var features: [Feature]
     }

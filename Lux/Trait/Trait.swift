@@ -7,14 +7,14 @@
 //
 import SwiftUI
 
-extension Trait {
-    public struct AdjustmentValues: Codable {
+public extension Trait {
+    struct AdjustmentValues: Codable {
         public var layout: CGFloat = 1.0
         public var cornerRadius: CGFloat = 1.0
         public var padding: CGFloat = 1.0
     }
 
-    public struct AdjustmentEdges: Codable {
+    struct AdjustmentEdges: Codable {
         public var padding: Edge.Set = .all {
             didSet {
                 margin = padding
@@ -76,7 +76,8 @@ public struct Trait: Codable {
                 fontMix: Look.FontMix = Look.current.defaultFontMix,
                 preferredElevation: Look.Elevation = Look.current.defaultElevation,
                 preferredFont: Font? = nil,
-                preferredColor: Color? = nil) {
+                preferredColor: Color? = nil)
+    {
         self.layout = layout
         self.surface = surface
         self.fontPriority = fontPriority

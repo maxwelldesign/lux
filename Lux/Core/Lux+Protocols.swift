@@ -72,34 +72,34 @@ public protocol LuxCompositionAPI: LuxCoreAPI {
 
 // MARK: - LuxRenderAPI
 
-extension LuxRenderAPI {
-    public var view: AnyView {
+public extension LuxRenderAPI {
+    var view: AnyView {
         lux.view
     }
 
-    public var trait: Trait {
+    var trait: Trait {
         lux.trait
     }
 
-    public var spec: SpecificationProtocol {
+    var spec: SpecificationProtocol {
         lux.spec
     }
 
-    public var draw: Lux.Drawing {
+    var draw: Lux.Drawing {
         lux.draw
     }
 
-    public var render: Lux.Render {
+    var render: Lux.Render {
         lux.render
     }
 }
 
-extension LuxRenderAPI {
-    public typealias ViewMutator = (AnyView) -> AnyView
-    public typealias TraitMutator = (Trait) -> Trait
+public extension LuxRenderAPI {
+    typealias ViewMutator = (AnyView) -> AnyView
+    typealias TraitMutator = (Trait) -> Trait
 
     @discardableResult
-    public func viewMutation(_ block: ViewMutator) -> LuxRenderAPIType {
+    func viewMutation(_ block: ViewMutator) -> LuxRenderAPIType {
         // TODO: sync with quue and locks
         let currentView = lux.view
         lux.view = block(currentView)
@@ -107,7 +107,7 @@ extension LuxRenderAPI {
     }
 
     @discardableResult
-    public func traitMutation(_ block: TraitMutator) -> LuxRenderAPIType {
+    func traitMutation(_ block: TraitMutator) -> LuxRenderAPIType {
         // TODO: sync with quue and locks
         let currentTrait = lux.trait
         lux.trait = block(currentTrait)
@@ -117,21 +117,21 @@ extension LuxRenderAPI {
 
 // MARK: LuxCompositionAPI
 
-extension LuxCompositionAPI {
+public extension LuxCompositionAPI {
     @discardableResult
-    public func tweak(_ tweaks: Lux.Tweak...) -> LuxCompositionAPIType {
+    func tweak(_ tweaks: Lux.Tweak...) -> LuxCompositionAPIType {
         _ = tweaks.forEach { _ = _tweak(as: $0) }
         return self as! LuxCompositionAPIType
     }
 
     @discardableResult
-    public func style(_ effects: Lux.Style...) -> LuxCompositionAPIType {
+    func style(_ effects: Lux.Style...) -> LuxCompositionAPIType {
         _ = effects.forEach { _ = _style(as: $0) }
         return self as! LuxCompositionAPIType
     }
 
     @discardableResult
-    public func feature(_ features: Lux.Feature...) -> LuxCompositionAPIType {
+    func feature(_ features: Lux.Feature...) -> LuxCompositionAPIType {
         _ = features.forEach { _ = _feature(as: $0) }
         return self as! LuxCompositionAPIType
     }
@@ -139,9 +139,9 @@ extension LuxCompositionAPI {
 
 // MARK: LuxControlFlowAPI
 
-extension LuxControlFlowAPI {
+public extension LuxControlFlowAPI {
     @discardableResult
-    public func `if`(_ condition: Bool, _ block: (LuxControlFlowAPIType) -> Any?) -> LuxControlFlowAPIType {
+    func `if`(_ condition: Bool, _ block: (LuxControlFlowAPIType) -> Any?) -> LuxControlFlowAPIType {
         if condition {
             if let result = block(self as! LuxControlFlowAPIType) as? AnyView {
                 lux.view = result
@@ -151,7 +151,7 @@ extension LuxControlFlowAPI {
     }
 
     @discardableResult
-    public func unless(_ condition: Bool, _ block: (LuxControlFlowAPIType) -> Any?) -> LuxControlFlowAPIType {
+    func unless(_ condition: Bool, _ block: (LuxControlFlowAPIType) -> Any?) -> LuxControlFlowAPIType {
         if condition == false {
             if let result = block(self as! LuxControlFlowAPIType) as? AnyView {
                 lux.view = result
@@ -161,7 +161,7 @@ extension LuxControlFlowAPI {
     }
 
     @discardableResult
-    public func `if`(userInterfaceIdiom: UIUserInterfaceIdiom, _ block: (LuxControlFlowAPIType) -> Any?) -> LuxControlFlowAPIType {
+    func `if`(userInterfaceIdiom: UIUserInterfaceIdiom, _ block: (LuxControlFlowAPIType) -> Any?) -> LuxControlFlowAPIType {
         if UIDevice.current.userInterfaceIdiom == userInterfaceIdiom {
             if let result = block(self as! LuxControlFlowAPIType) as? AnyView {
                 lux.view = result
@@ -171,7 +171,7 @@ extension LuxControlFlowAPI {
     }
 
     @discardableResult
-    public func unless(userInterfaceIdiom: UIUserInterfaceIdiom, _ block: (LuxControlFlowAPIType) -> Any?) -> LuxControlFlowAPIType {
+    func unless(userInterfaceIdiom: UIUserInterfaceIdiom, _ block: (LuxControlFlowAPIType) -> Any?) -> LuxControlFlowAPIType {
         if UIDevice.current.userInterfaceIdiom != userInterfaceIdiom {
             if let result = block(self as! LuxControlFlowAPIType) as? AnyView {
                 lux.view = result

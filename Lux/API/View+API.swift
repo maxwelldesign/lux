@@ -44,24 +44,24 @@ public extension View {
 
 // -------------
 
-extension View {
-    public func anyView() -> AnyView {
+public extension View {
+    func anyView() -> AnyView {
         AnyView(self)
     }
 }
 
 // MARK: THEME INTERFACE
 
-extension View {
-    public var look: Look {
+public extension View {
+    var look: Look {
         Look.current
     }
 }
 
 // MARK: COLOR VALUES
 
-extension View {
-    public func lookPalette(color keypath: KeyPath<SurfaceProviderProtocol, Color> = \.normal, scheme: Look.Scheme? = nil) -> Color {
+public extension View {
+    func lookPalette(color keypath: KeyPath<SurfaceProviderProtocol, Color> = \.normal, scheme: Look.Scheme? = nil) -> Color {
         switch scheme {
         case .light:
             return look.specLight.surface[keyPath: keypath]

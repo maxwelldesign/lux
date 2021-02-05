@@ -8,8 +8,8 @@
 
 import Foundation
 
-extension Lux {
-    public enum Tweak: String, Codable {
+public extension Lux {
+    enum Tweak: String, Codable {
         case none
 
         // MARK: Fonts

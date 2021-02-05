@@ -8,8 +8,8 @@
 
 import SwiftUI
 
-extension Lux {
-    public enum Feature: String, Codable {
+public extension Lux {
+    enum Feature: String, Codable {
         case none
 
         // MARK: Foreground Color

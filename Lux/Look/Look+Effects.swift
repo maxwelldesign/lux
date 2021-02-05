@@ -7,10 +7,10 @@
 //
 import SwiftUI
 
-extension Look {
-    static let limits = Limits()
+public extension Look {
+    internal static let limits = Limits()
 
-    public struct Limits: Codable, Hashable {
+    struct Limits: Codable, Hashable {
         var hairline: CGFloat = 1.0
         var minGutter: CGFloat = 2.0
         var maxGutter: CGFloat = 64.0
@@ -22,7 +22,7 @@ extension Look {
         var maxElevation: CGFloat = 0.5
     }
 
-    public struct Specification: SpecificationProtocol, Codable, Hashable {
+    struct Specification: SpecificationProtocol, Codable, Hashable {
         public var texture = Look.Texture()
 
         public static func == (lhs: Look.Specification, rhs: Look.Specification) -> Bool {
@@ -95,7 +95,7 @@ extension Look {
         )
     }
 
-    public struct Texture: Codable, Hashable {
+    struct Texture: Codable, Hashable {
         public enum Style: String, Codable, Hashable {
             case linearGradient
             case radialGradient
@@ -151,16 +151,16 @@ extension UnitPoint: Codable {
     }
 }
 
-extension Look {
-    public struct SurfaceProvider: SurfaceProviderProtocol {
+public extension Look {
+    struct SurfaceProvider: SurfaceProviderProtocol {
         public var spec: Look.Specification
         public var priority: Look.Priority
         public var palette: PaletteProtocol
     }
 }
 
-extension Look.Specification {
-    public var surface: Look.SurfaceProvider {
+public extension Look.Specification {
+    var surface: Look.SurfaceProvider {
         Look.SurfaceProvider(spec: self, priority: color.priority, palette: color)
     }
 }

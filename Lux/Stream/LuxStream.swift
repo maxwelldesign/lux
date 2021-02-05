@@ -9,15 +9,15 @@
 import Combine
 import SwiftUI
 
-extension LuxStream {
-    public static var DefaultServer = "LUX"
+public extension LuxStream {
+    static var DefaultServer = "LUX"
 
-    public enum Role: String, Hashable {
+    enum Role: String, Hashable {
         case streaming
         case tuning
     }
 
-    public struct Config {
+    struct Config {
         public var name: String = "Lux"
         public var role: Role?
         public var shouldConnect = false
@@ -174,7 +174,8 @@ public extension LuxStream {
     func stream(_ photon: Photon) {
         guard
             let multiPeer = multiPeer,
-            multiPeer.isConnected == true else {
+            multiPeer.isConnected == true
+        else {
             return
         }
         guard config.role == .streaming else {

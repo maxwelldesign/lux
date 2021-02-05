@@ -187,8 +187,8 @@ public extension SurfaceProviderProtocol {
     }
 }
 
-extension Look {
-    public enum Scheme: String, Codable, Hashable {
+public extension Look {
+    enum Scheme: String, Codable, Hashable {
         case light
         case dark
 

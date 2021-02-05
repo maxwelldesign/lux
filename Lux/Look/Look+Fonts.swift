@@ -8,8 +8,8 @@
 
 import SwiftUI
 
-extension Look {
-    public struct Fonts: Codable, Hashable {
+public extension Look {
+    struct Fonts: Codable, Hashable {
         public var primary = UIFont.systemFont(ofSize: UIFont.systemFontSize)
         public var secondary = UIFont.boldSystemFont(ofSize: UIFont.systemFontSize)
         public var tertiary = UIFont.italicSystemFont(ofSize: UIFont.systemFontSize)

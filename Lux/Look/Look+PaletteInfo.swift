@@ -13,8 +13,8 @@ protocol LookPriority {
     var priority: Look.Priority { get }
 }
 
-extension Look {
-    public struct PaletteScheme: PaletteProtocol, Codable, LookPriority, Hashable {
+public extension Look {
+    struct PaletteScheme: PaletteProtocol, Codable, LookPriority, Hashable {
         public var preferred: Look.Priority?
 
         public var primary = UIColor(hex: "#39277FFF")!

@@ -8,8 +8,8 @@
 
 import Foundation
 
-extension Look {
-    public static func feed(from _: String) {
+public extension Look {
+    static func feed(from _: String) {
         assert(false, "Feature under development, request alpha access at lux@maxwell.design")
     }
 }
