@@ -8,33 +8,33 @@
 import SwiftUI
 
 public protocol PaletteProtocol {
-    var primary: Color { get }
-    var secondary: Color { get }
-    var tertiary: Color { get }
+    var primary: UIColor { get }
+    var secondary: UIColor { get }
+    var tertiary: UIColor { get }
 
-    var label: Color { get }
-    var label2: Color { get }
-    var label3: Color { get }
-    var label4: Color { get }
+    var label: UIColor { get }
+    var label2: UIColor { get }
+    var label3: UIColor { get }
+    var label4: UIColor { get }
 
-    var fill: Color { get }
-    var fill2: Color { get }
-    var fill3: Color { get }
-    var fill4: Color { get }
+    var fill: UIColor { get }
+    var fill2: UIColor { get }
+    var fill3: UIColor { get }
+    var fill4: UIColor { get }
 
-    var shadow: Color { get }
+    var shadow: UIColor { get }
 
-    var tint: Color { get }
-    var tint2: Color { get }
-    var tint3: Color { get }
+    var tint: UIColor { get }
+    var tint2: UIColor { get }
+    var tint3: UIColor { get }
 
-    var background: Color { get }
-    var background2: Color { get }
-    var background3: Color { get }
+    var background: UIColor { get }
+    var background2: UIColor { get }
+    var background3: UIColor { get }
 
-    var group: Color { get }
-    var group2: Color { get }
-    var group3: Color { get }
+    var group: UIColor { get }
+    var group2: UIColor { get }
+    var group3: UIColor { get }
 }
 
 public protocol SurfaceProviderProtocol {
@@ -98,18 +98,18 @@ public extension SurfaceProviderProtocol {
     }
 
     func accent(_ elevation: Look.Elevation, prio _: Look.Priority?) -> Color {
-        render(color: palette.background3, at: elevation)
+        render(color: palette.background3.paint, at: elevation)
     }
 
     func active(_ elevation: Look.Elevation, prio: Look.Priority?) -> Color {
         let result: Color
         switch prio ?? priority {
         case .primary:
-            result = palette.primary
+            result = palette.primary.paint
         case .secondary:
-            result = palette.secondary
+            result = palette.secondary.paint
         case .tertiary:
-            result = palette.tertiary
+            result = palette.tertiary.paint
         }
 
         return render(color: result, at: elevation)
@@ -121,27 +121,27 @@ public extension SurfaceProviderProtocol {
             .contrast(
                 bright: foregroundLight.uiColor(),
                 dark: foregroundDark.uiColor()
-            ).uiColor
+            ).paint
     }
 }
 
 public extension SurfaceProviderProtocol {
     func canvas(_ elevation: Look.Elevation) -> Color {
-        render(color: palette.background, at: elevation)
+        render(color: palette.background.paint, at: elevation)
     }
 
     func normal(_ elevation: Look.Elevation) -> Color {
-        render(color: palette.background2, at: elevation)
+        render(color: palette.background2.paint, at: elevation)
     }
 }
 
 public extension SurfaceProviderProtocol {
     func foregroundLight(_ elevation: Look.Elevation) -> Color {
-        render(color: palette.label, at: elevation)
+        render(color: palette.label.paint, at: elevation)
     }
 
     func foregroundDark(_ elevation: Look.Elevation) -> Color {
-        render(color: palette.label2, at: elevation)
+        render(color: palette.label2.paint, at: elevation)
     }
 }
 
@@ -152,7 +152,7 @@ public extension SurfaceProviderProtocol {
             .contrast(
                 bright: foregroundLight.uiColor(),
                 dark: foregroundDark.uiColor()
-            ).uiColor
+            ).paint
     }
 
     func foregroundNormal(_ elevation: Look.Elevation) -> Color {
@@ -161,7 +161,7 @@ public extension SurfaceProviderProtocol {
             .contrast(
                 bright: foregroundLight.uiColor(),
                 dark: foregroundDark.uiColor()
-            ).uiColor
+            ).paint
     }
 
     func foregroundAccent(_ elevation: Look.Elevation, prio: Look.Priority?) -> Color {
@@ -170,7 +170,7 @@ public extension SurfaceProviderProtocol {
         return HueColor(hue: tint.hue,
                         saturation: max(color.saturation, tint.saturation),
                         brightness: max(color.brightness, tint.brightness))
-            .toUIColor().uiColor
+            .toUIColor().paint
     }
 
     func foregroundActive(_ elevation: Look.Elevation, prio: Look.Priority?) -> Color {
@@ -179,7 +179,7 @@ public extension SurfaceProviderProtocol {
             .contrast(
                 bright: foregroundLight.uiColor(),
                 dark: foregroundDark.uiColor()
-            ).uiColor
+            ).paint
     }
 
     func foregroundContrast(_ elevation: Look.Elevation, prio: Look.Priority?) -> Color {

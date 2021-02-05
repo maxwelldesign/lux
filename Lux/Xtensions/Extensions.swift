@@ -65,7 +65,7 @@ extension EdgeInsets {
 }
 
 extension UIColor {
-    public var uiColor: Color {
+    public var paint: Color {
         var r: CGFloat = 0
         var g: CGFloat = 0
         var b: CGFloat = 0
@@ -76,6 +76,34 @@ extension UIColor {
     }
 }
 
+extension UIColor {
+    public convenience init?(hex: String) {
+        let r, g, b, a: CGFloat
+
+        if hex.hasPrefix("#") {
+            let start = hex.index(hex.startIndex, offsetBy: 1)
+            let hexColor = String(hex[start...])
+
+            if hexColor.count == 8 {
+                let scanner = Scanner(string: hexColor)
+                var hexNumber: UInt64 = 0
+
+                if scanner.scanHexInt64(&hexNumber) {
+                    r = CGFloat((hexNumber & 0xff000000) >> 24) / 255
+                    g = CGFloat((hexNumber & 0x00ff0000) >> 16) / 255
+                    b = CGFloat((hexNumber & 0x0000ff00) >> 8) / 255
+                    a = CGFloat(hexNumber & 0x000000ff) / 255
+
+                    self.init(red: r, green: g, blue: b, alpha: a)
+                    return
+                }
+            }
+        }
+
+        return nil
+    }
+}
+
 extension Color {
     public func uiColor() -> UIColor {
         let components = self.components()
@@ -83,17 +111,24 @@ extension Color {
     }
 
     private func components() -> (r: CGFloat, g: CGFloat, b: CGFloat, a: CGFloat) {
-        let scanner = Scanner(string: description.trimmingCharacters(in: CharacterSet.alphanumerics.inverted))
-        var hexNumber: UInt64 = 0
+        
         var r: CGFloat = 0.0, g: CGFloat = 0.0, b: CGFloat = 0.0, a: CGFloat = 0.0
 
-        let result = scanner.scanHexInt64(&hexNumber)
-        if result {
-            r = CGFloat((hexNumber & 0xFF00_0000) >> 24) / 255
-            g = CGFloat((hexNumber & 0x00FF_0000) >> 16) / 255
-            b = CGFloat((hexNumber & 0x0000_FF00) >> 8) / 255
-            a = CGFloat(hexNumber & 0x0000_00FF) / 255
+        if #available(iOS 14.0, *) {
+            UIColor(self).getRed(&r, green: &g, blue: &b, alpha: &a)
+        } else {
+            // Fallback on earlier versions
+            let scanner = Scanner(string: description.trimmingCharacters(in: CharacterSet.alphanumerics.inverted))
+            var hexNumber: UInt64 = 0
+            let result = scanner.scanHexInt64(&hexNumber)
+            if result {
+                r = CGFloat((hexNumber & 0xFF00_0000) >> 24) / 255
+                g = CGFloat((hexNumber & 0x00FF_0000) >> 16) / 255
+                b = CGFloat((hexNumber & 0x0000_FF00) >> 8) / 255
+                a = CGFloat(hexNumber & 0x0000_00FF) / 255
+            }
         }
+        
         return (r, g, b, a)
     }
 }
@@ -238,7 +273,7 @@ extension UIColor {
 
 extension Color {
     public var contrast: Color {
-        uiColor().contrast.uiColor
+        uiColor().contrast.paint
     }
 }
 

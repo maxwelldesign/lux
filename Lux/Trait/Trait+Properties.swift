@@ -265,7 +265,7 @@ extension Trait {
     var shadowColor: Color {
         let maxShadow = 0.5
         let value = spec.shadow.mix.doubleValue * maxShadow
-        return spec.color.shadow.uiColor().withAlphaComponent(value.cgFloat).uiColor
+        return spec.color.shadow.withAlphaComponent(value.cgFloat).paint
     }
 
     var shadowRadius: CGFloat {

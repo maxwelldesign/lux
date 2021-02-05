@@ -151,7 +151,7 @@ public struct SpecificationOverview: View {
                                     .style(.iconLarge, .text)
                                     .view
                                     .padding(4)
-                                    .background(Circle().fill(self.spec.color.tint))
+                                    .background(Circle().fill(self.spec.color.tint.paint))
                                     .lux
                                     .feature(.shadow)
                                     .view
@@ -178,7 +178,7 @@ public struct SpecificationOverview: View {
                                     .style(.iconLarge, .text)
                                     .view
                                     .padding(4)
-                                    .background(Circle().fill(self.spec.color.tint2))
+                                    .background(Circle().fill(self.spec.color.tint2.paint))
                                     .lux
                                     .feature(.shadow)
                                     .view
